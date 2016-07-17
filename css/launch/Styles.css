@@ -31,6 +31,7 @@ html {
         /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
         overflow-x: hidden;
+		color:#0D0D0D;
     }
     body {
         font-family: lato!important;
@@ -1509,7 +1510,7 @@ label {
 .sale-info {
     position: relative;
     width: 100%;
-    background: #fff;
+    background: #F3F5F6;
     z-index: 1;
     box-shadow: 0px 0px 7px 0px rgba(166, 166, 166, 0.4);
 }
@@ -1540,7 +1541,7 @@ label {
 .i-pills>li.active>a:focus,
 .i-pills>li.active>a:hover {
     color: #169f8d!important;
-    background-color: #FFFFFF!important;
+    background-color: #F3F5F6!important;
     padding-bottom: 7px;
     border-bottom: 3px #169f8d solid;
     transition: ease-in .2s;
@@ -1548,6 +1549,7 @@ label {
 
 .sale-content {
     padding-top: 20px;
+	background-color:#F3F5F6;
 }
 
 .tour-pricing h3 {
@@ -1687,6 +1689,7 @@ label {
 
 .card-desc {
     font-family: lato;
+	color:#0D0D0D;
 }
 
 .view-det {
