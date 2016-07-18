@@ -10,6 +10,10 @@
 @font-face {
     src: url(../../fonts/Lato-Semibold.woff);
 }
+body{
+	-webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
 html {
     overflow-x: hidden;
@@ -39,6 +43,7 @@ html {
         overflow-y: scroll;
         /* has to be scroll, not auto */
         -webkit-overflow-scrolling: touch;
+		
     }
     .navLogo {
         left: 47%!important;
@@ -1770,4 +1775,39 @@ label {
 .iti-sum td {
     padding-left: 10px;
     padding-bottom: 10px;
+}
+.timeline-card:before{
+content: "";
+position: absolute;
+width: 3px;
+background: #eaeaea;
+top: 4px;
+left: -2px;
+bottom: -25px;
+}
+.card-date-loca:before{
+content: "";
+position: absolute;
+width: 18px;
+height: 18px;
+border-radius: 50%;
+border: 2px solid #f7f7f7;
+background: #d35136;
+left: -24px;
+z-index: 1;
+}
+.green-bodah .toCarry table{
+	min-width:100%;
+}
+.green-bodah .toCarry td{
+	width:50%;
+}
+.date-month2 input{
+	width:80%!important;
+}
+.date-month2 span{
+	vertical-align:-webkit-baseline-middle;
+	color:#148C7C;
+	font-family:lato;
+	float:right;
 }

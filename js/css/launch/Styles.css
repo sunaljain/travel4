@@ -16,6 +16,8 @@ html{
 	overflow-y: scroll; /* has to be scroll, not auto */
   -webkit-overflow-scrolling:touch;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;s
 }
 body{
 	font-family:lato!important;

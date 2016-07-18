@@ -487,13 +487,14 @@ Assisted transfer to the airport.
                             </ul>
                             <hr>
                             <h1></h1> </div>
-                        <div id="" ng-show="pillTabIndex == 3" class="lato-light">
+                        <div id="" ng-show="pillTabIndex == 3" class="lato-light toCarry">
                             <h1 class="green">What to Carry</h1>
                             <table class="lato">
                                 <tbody>
                                     <tr>
                                         <td>Back pack &amp; rain cover</td>
                                         <td>(50 - 60 ltr) with comfortable shoulder straps</td>
+                                    </tr>
                                         <tr>
                                             <td>Day pack + rain cover</td>
                                             <td>20 - 30 ltr (If hire a mule or porter)</td>
@@ -692,7 +693,7 @@ Assisted transfer to the airport.
                                         <label for="sel1">No. of People:</label>
                                         <div class="input-group spinner">
                                             <input type="number" ng-model="numberOfPeople" min="1" class="form-control" style="text-align:left;" ng-change="calculatePeoplesCost()">
-                                            {{peoplesCost}}
+                                            <span>{{peoplesCost}}</span>
                                         </div>
                                     </div>
                                     <hr>
@@ -708,7 +709,7 @@ Assisted transfer to the airport.
                                         <label for="sel1">Sleeping Bags:</label>
                                         <div class="input-group spinner">
                                             <input ng-model="totalSleepingBags" type="number" min="0" class="form-control" style="text-align:left;">
-                                            {{totalSleepingBags * tourPrice.sleeping_bag_cost}}
+                                            <span>{{totalSleepingBags * tourPrice.sleeping_bag_cost}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -762,15 +763,41 @@ Assisted transfer to the airport.
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Modal title</h4> </div>
-            <div class="modal-body"> ... </div>
+                <h4 class="modal-title lato-light" id="myModalLabel">Enquire</h4> </div>
+            <div class="modal-body"> 
+            <div class="text-center green lato">
+            	<h3>Number of people:</h3>
+                <h3>Hotel:</h3>
+                <h3>Sleeping bags:</h3>
+                <h3>Final cost:</h3>
+            </div>
+            <form role="form">
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="no">Phone No:</label>
+    <input type="tel" class="form-control" id="">
+  </div>
+<div class="form-group">
+    <label for="email">Email:</label>
+    <input type="email" class="form-control" id="">
+  </div>
+  <div class="form-group">
+    <label for="message">Message:</label>
+    <textarea rows="4" class="form-control"></textarea>
+    </div>
+	  
+  </form>
+            </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
-</div>
+</div>   
 <script src="app/components/tours/particles.min.js"></script>
 <script src="app/components/tours/jquery.sticky.js"></script>
 <script src="app/components/tours/animatescroll.min.js"></script>
