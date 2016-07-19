@@ -94,7 +94,7 @@ html {
 
 .btn-campture {
     background-color: rgb(226, 88, 51)!important;
-    font: lato-light;
+    font: lato;
     font-weight: 200;
     color: #FFFFFF;
 }
@@ -225,7 +225,7 @@ html {
 .campturelets {
     margin: 30px;
     font-size: 22px;
-    font-family: lato-light;
+    font-family: lato;
     font-weight: 500;
     color: #525354;
     letter-spacing: .02em;
@@ -368,7 +368,7 @@ html {
 }
 
 .yourexpert {
-    font-family: lato-light;
+    font-family: lato;
     text-transform: none;
     font-size: 30px;
     margin-bottom: 40px;
@@ -386,7 +386,7 @@ html {
 
 .gearListWrap p {
     font-size: 24px;
-    font-family: lato-light;
+    font-family: lato;
 }
 
 .gearListWrap input[type=date] {
@@ -535,12 +535,12 @@ html {
 
 .gearResults {
     padding: 0;
-    font-family: lato-light;
+    font-family: lato;
 }
 
 .gearCategory {
     font-size: 4.2rem;
-    font-family: lato-light;
+    font-family: lato;
     margin-bottom: 5px;
     padding: 10px;
     color: #EF975F;
@@ -786,7 +786,7 @@ a {
     bottom: 10px;
     left: 60px;
     border-radius: 30px;
-    font-family: lato-light;
+    font-family: lato;
     letter-spacing: 0.02em;
     font-size: 1em;
 }
@@ -941,7 +941,7 @@ a {
 .checklistShowcase {
     padding-top: 10%;
     min-height: 100vh;
-    font-family: lato-light;
+    font-family: lato;
 }
 
 
@@ -966,11 +966,11 @@ a {
     text-align: center;
     top: 2em;
     font-size: 6em;
-    font-family: lato-light;
+    font-family: lato;
 }
 
 .discover-offbeat {
-    font-family: lato-light;
+    font-family: lato;
     text-align: center;
     font-size: 3em;
 }
@@ -1064,7 +1064,7 @@ a {
 
 .customLabel {
     font-size: .7em;
-    font-family: lato-light;
+    font-family: lato;
     min-width: 50px;
     height: 60px;
     padding-top: 50%;
@@ -1145,7 +1145,7 @@ a {
     display: block;
     width: 100%;
     opacity: 0!important;
-    font-family: lato-light;
+    font-family: lato;
 }
 
 .questions input[type="radio"]:checked + label {
@@ -1443,7 +1443,7 @@ label {
 
 .bubble--alt input::-webkit-input-placeholder {
     font-size: .8em;
-    font-family: lato-light;
+    font-family: lato;
     color: rgb(255, 255, 255);
     font-style: italic;
 }
@@ -1479,7 +1479,7 @@ label {
     background-color: rgb(59, 89, 152)!important;
     margin-top: 10px;
     color: rgb(255, 255, 255)!important;
-    font-family: lato-light;
+    font-family: lato;
     letter-spacing: 0.04em;
     font-size: 16px;
     padding: 6px 12px;
@@ -1518,6 +1518,7 @@ label {
     background: #F3F5F6;
     z-index: 1;
     box-shadow: 0px 0px 7px 0px rgba(166, 166, 166, 0.4);
+	overflow:hidden;
 }
 
 #aa_particles {
@@ -1720,8 +1721,8 @@ label {
     bottom: 104px;
 }
 
-.lato-light {
-    font-family: lato-light;
+.lato {
+    font-family: lato;
 }
 
 .sum-card {}
@@ -1776,13 +1777,17 @@ label {
     padding-left: 10px;
     padding-bottom: 10px;
 }
+.timeline-card{
+	padding-left:10px;
+	padding-bottom:10px;
+}
 .timeline-card:before{
 content: "";
 position: absolute;
 width: 3px;
 background: #eaeaea;
 top: 4px;
-left: -2px;
+left: -6px;
 bottom: -25px;
 }
 .card-date-loca:before{
@@ -1809,5 +1814,26 @@ z-index: 1;
 	vertical-align:-webkit-baseline-middle;
 	color:#148C7C;
 	font-family:lato;
-	float:right;
+}
+.mand{
+	border-color:#ccc;
+	border-radius:4px;
+	border-width:1px;
+	width:100%;
+	border-style:solid;
+	display:flex;
+}
+.mandwithin{
+	width:33.33%;
+	cursor:pointer;
+	font:lato;
+}
+.mandwithin:hover{
+	background-color:#B0B0B0;
+}
+.mandwithinactive{
+	background-color:#B0B0B0;
+}
+.tripsWrap{
+	padding-top:80px;
 }

@@ -1,7 +1,7 @@
 <div class="sale-wrap">
     <div class="intro-photo-wrap">
         <div class="badge-det text-center">
-            <img src="css/images/Markha_hero/badge.png" class="img-responsive">
+            <img src="../../../../css/images/trip_selling_badges/stok_la_trek_badge.png" class="img-responsive">
             <p><i class="fa fa-map-marker"></i> <strong>Leh</strong>, Ladakh, India</p>
             <div class="col-md-12 text-center text-uppercase lato">
                 <div class="col-md-6">
@@ -10,7 +10,7 @@
                 </div>
                 <div class="col-md-6">
                     <img src="css/images/hero_img_icons/difficulty_meter.png" style="height:45px;">
-                    <span> Difficult</span>
+                    <span>Moderate</span>
                 </div>
             </div>
         </div>
@@ -29,7 +29,8 @@
                     <li ng-class="{'active': pillTabIndex == 1}"><a data-toggle="pill" ng-click="updatePillTabPos(1)"><i class="fa fa-map-o" aria-hidden="true"></i> Itinerary
                         </a> </li>
                     <li ng-class="{'active': pillTabIndex == 2}"><a data-toggle="pill" ng-click="updatePillTabPos(2)"><i class="fa fa-align-left"></i> Details</a></li>
-                    <li ng-class="{'active': pillTabIndex == 3}"><a data-toggle="pill" ng-click="updatePillTabPos(3)"><i class="fa fa-align-left"></i> What to Carry</a></li>
+                    <li ng-class="{'active': pillTabIndex == 3}"><a data-toggle="pill" ng-click="updatePillTabPos(3)"><i class="fa fa-umbrella" aria-hidden="true"></i>What to Carry</a></li>
+                    <li ng-class="{'active': pillTabIndex == 4}"><a data-toggle="pill" ng-click="updatePillTabPos(4)"><i class="fa fa-ban" aria-hidden="true"></i>Cancellation Policy</a></li>
                 </ul>
             </div>
         </div>
@@ -563,6 +564,21 @@
 </tbody>
                             </table>
                         </div>
+                        <div id="" ng-show="pillTabIndex == 4" class="lato-light">
+                        	<ol>
+                            <li>Cancellations prior to 28 days from the start of the trip
+10% of booking value will be charged as cancellation fee.</li>
+​
+<li>Cancellation prior to 21 days to the start of the trip
+25% of booking value will be charged as cancellation fee.</li>
+​
+<li>Cancellation prior to 14 days to the start of the trek
+50% of booking value will be charged as cancellation fee.</li>
+​
+<li>Cancellation less than 10 days to the start of the trip
+100% of booking value will be charged as cancellation fees. No refund.</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -644,7 +660,7 @@
                                 <br>
                                 <div class="flex lato text-center">
                                     <div  class="date-month inr" style="border-bottom-left-radius:6px;"> <i class="fa fa-shopping-cart"></i> <span ng-show="privateGroupTabIndex == 0 && numberOfPeople">INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms) + (totalSleepingBags * tourPrice.sleeping_bag_cost))/numberOfPeople | number:0}} per person</span> <span ng-show="privateGroupTabIndex == 1 &&numberOfPeopleInGroup"> INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost) + (totalSleepingBagsGroup * tourPrice.sleeping_bag_cost))/numberOfPeopleInGroup | number:0}} per person</span></div>
-                                    <div class="date-month inr dark-green-bg" style="border-bottom-right-radius:6px; cursor:pointer;" data-toggle="modal" data-target="#enqModal"> checkout <i class="fa fa-angle-right"></i> </div>
+                                    <div class="date-month inr dark-green-bg" style="border-bottom-right-radius:6px; cursor:pointer;" data-toggle="modal" data-target="#enqModal"> Enquire Now <i class="fa fa-angle-right"></i> </div>
                                 </div>
                             </div>
                         </div>
