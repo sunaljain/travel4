@@ -720,7 +720,7 @@ Assisted transfer to the airport.
                                 </tr>
                                 <tr>
                                     <td>Gaiters</td>
-                                    <td>TTH team will notify you, if required</td>
+                                    <td>If required</td>
                                 </tr>
                                 <tr>
                                     <td>Gumboots</td>
@@ -784,10 +784,9 @@ Assisted transfer to the airport.
                                     </div>
                                     <hr>
                                     <div class="date-month2 lato" style="">
-                                        <label for="sel1">Sleeping Bags:</label>
+                                        <label for="sel1">Date:</label>
                                         <div class="input-group spinner">
-                                            <input ng-model="totalSleepingBags" type="number" min="0" class="form-control" style="text-align:left;">
-                                            <span>{{totalSleepingBags * tourPrice.sleeping_bag_cost}}</span>
+                                            <input style="text-align: left" name="travelDate" type="text" placeholder="Enter Date" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="tourDate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" id="date" required>
                                         </div>
                                     </div>
                                 </div>

@@ -36,6 +36,19 @@
         $scope.selectedMonth = { Id: 1, Value: 'January' };
         $scope.selectedDate;
         $scope.groupDateTimelist = new Array();
+        $scope.minDate = new Date();
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+        $scope.status = {
+            opened: false
+        };
+        $scope.tourDate = new Date();
+
+        $scope.open = function ($event) {
+            $scope.status.opened = true;
+        };
 
         $scope.$watch('numberOfPeople', function () {
             $scope.numberOfRooms = Math.floor($scope.numberOfPeople / 2) + $scope.numberOfPeople % 2;
