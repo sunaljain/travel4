@@ -828,28 +828,33 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title lato-light" id="myModalLabel">Enquire</h4> </div>
             <div class="modal-body"> 
-            <div class="text-center green lato">
-            	<h3>Number of people:</h3>
-                <h3>Hotel:</h3>
-                <h3>Sleeping bags:</h3>
-                <h3>Final cost:</h3>
+            <div ng-show="privateGroupTabIndex == 0" class="text-center green lato">
+            	<h3>Number of people: {{numberOfPeople}}</h3>
+                <h3>Accomodation: <span ng-show="selectedAccomodation.cost != 0">{{selectedAccomodation.type}}</span><span ng-show="selectedAccomodation.cost == 0">No accomodation selected</span></h3>
+                <h3>Sleeping bags: {{totalSleepingBags}}</h3>
+                <h3>Final cost: INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms) + (totalSleepingBags * tourPrice.sleeping_bag_cost))/numberOfPeople | number:0}} per  person</h3>
+            </div>
+            <div ng-show="privateGroupTabIndex == 1" class="text-center green lato">
+            	<h3>Number of people: {{numberOfPeopleInGroup}}</h3>
+                <h3>Sleeping bags: {{totalSleepingBagsGroup}}</h3>
+                <h3>Final cost: INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost) + (totalSleepingBagsGroup * tourPrice.sleeping_bag_cost))/numberOfPeopleInGroup | number:0}} per person</h3>
             </div>
             <form role="form">
   <div class="form-group">
     <label for="name">Name:</label>
-    <input type="text" class="form-control">
+    <input ng-model="userQuery.name" type="text" class="form-control" required>
   </div>
   <div class="form-group">
     <label for="no">Phone No:</label>
-    <input type="tel" class="form-control" id="">
+    <input ng-model="userQuery.phone" type="tel" class="form-control" id="" required>
   </div>
 <div class="form-group">
     <label for="email">Email:</label>
-    <input type="email" class="form-control" id="">
+    <input ng-model="userQuery.email" type="email" class="form-control" id="" required>
   </div>
   <div class="form-group">
     <label for="message">Message:</label>
-    <textarea rows="4" class="form-control"></textarea>
+    <textarea ng-model="userQuery.message" rows="4" class="form-control"></textarea>
     </div>
 	  
   </form>
@@ -857,7 +862,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button ng-click="sendUserQuery()" type="button" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>

@@ -4,7 +4,8 @@ app.factory('TourService', ['$http', '$q', function ($http, $q) {
     //var tourPrice = TourPrice();    
 
     return {
-        getTourPriceDetails: getTourPriceDetails
+        getTourPriceDetails: getTourPriceDetails,
+        sendUserTourQuery: sendUserTourQuery
     };
 
     function getTourPriceDetails(tourPriceId, callback) {
@@ -16,6 +17,21 @@ app.factory('TourService', ['$http', '$q', function ($http, $q) {
             },
             error: function (object, error) {
                 // The object was not retrieved successfully.
+            }
+        });
+    }
+
+    function sendUserTourQuery(userQuery, callback) {
+        var data = {
+            userQuery: userQuery
+        }
+        Parse.Cloud.run("sendTourUserQuery", data, {
+            success: function (object) {
+                callback(object);
+            },
+
+            error: function (object, error) {
+                console.log(object + ' ' + error);
             }
         });
     }
