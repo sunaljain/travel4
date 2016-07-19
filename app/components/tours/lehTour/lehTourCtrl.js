@@ -36,8 +36,23 @@
         $scope.selectedMonth = { Id: 1, Value: 'January' };
         $scope.selectedDate;
         $scope.groupDateTimelist = new Array();
-        $scope.userQuery = new Object()
+        $scope.userQuery = new Object();
+        $scope.selectedPriceList = new Object();
+        $scope.finalPrice = new Object();
+        $scope.selectedStay = 2;
+        $scope.minDate = new Date();
+        $scope.dateOptions = {
+            formatYear: 'yy',
+            startingDay: 1
+        };
+        $scope.status = {
+            opened: false
+        };
+        $scope.tourDate = new Date();
 
+        $scope.open = function ($event) {
+            $scope.status.opened = true;
+        };
         $scope.$watch('numberOfPeople', function () {
             $scope.numberOfRooms = Math.floor($scope.numberOfPeople / 2) + $scope.numberOfPeople % 2;
         });
@@ -48,7 +63,7 @@
         });
         $scope.$watch('selectedMonth', function () {
             $scope.groupDateList = new Array()
-           getDateListForMonth($scope.selectedMonth.Id)
+            getDateListForMonth($scope.selectedMonth.Id)
         });
         $scope.scrollTo = function (id) {
             $location.hash(id);
@@ -60,45 +75,56 @@
         $scope.updatePrivateGroupTab = function (pos) {
             $scope.privateGroupTabIndex = pos;
         }
-        $scope.priceList = [{ people: 2, cost_per_person: 16000 }, { people: 4, cost_per_person: 12500 }, { people: 6, cost_per_person: 10500 }, { people: 8, cost_per_person: 6500}]
+
         $scope.calculatePeoplesCost = function () {
 
             if ($scope.numberOfPeople <= 3) {
-                angular.forEach($scope.tourPrice.price_list,function(priceObject,key){
-                    if (priceObject.no_of_people == 2){
-                        $scope.peoplesCost = priceObject.price * $scope.numberOfPeople
+                angular.forEach($scope.tourPrice.price_list, function (priceObject, key) {
+                    if (priceObject.no_of_people == 2) {
+                        $scope.selectedPriceList = priceObject
                     }
                 })
-                
             }
             else if ($scope.numberOfPeople <= 5) {
-                angular.forEach($scope.tourPrice.price_list,function(priceObject,key){
-                    if (priceObject.no_of_people == 4){
-                        $scope.peoplesCost = priceObject.price * $scope.numberOfPeople
+                angular.forEach($scope.tourPrice.price_list, function (priceObject, key) {
+                    if (priceObject.no_of_people == 4) {
+                        $scope.selectedPriceList = priceObject
                     }
                 })
             }
             else if ($scope.numberOfPeople <= 7) {
-                angular.forEach($scope.tourPrice.price_list,function(priceObject,key){
-                    if (priceObject.no_of_people == 6){
-                        $scope.peoplesCost = priceObject.price * $scope.numberOfPeople
+                angular.forEach($scope.tourPrice.price_list, function (priceObject, key) {
+                    if (priceObject.no_of_people == 6) {
+                        $scope.selectedPriceList = priceObject
                     }
                 })
             }
             else {
-                angular.forEach($scope.tourPrice.price_list,function(priceObject,key){
-                    if (priceObject.no_of_people == 8){
-                        $scope.peoplesCost = priceObject.price * $scope.numberOfPeople
+                angular.forEach($scope.tourPrice.price_list, function (priceObject, key) {
+                    if (priceObject.no_of_people == 8) {
+                        $scope.selectedPriceList = priceObject
                     }
                 })
             }
+            $scope.selectStay($scope.selectedStay);
         }
-
+        $scope.selectStay = function (type) {
+            if (type == 0) {//Luxury
+                $scope.finalPrice = $scope.selectedPriceList.price_luxury * $scope.numberOfPeople;
+            }
+            else if (type == 1) {//Budget
+                $scope.finalPrice = $scope.selectedPriceList.price_budget * $scope.numberOfPeople;
+            }
+            else if (type == 2) {//Homestay
+                $scope.finalPrice = $scope.selectedPriceList.price_homestay * $scope.numberOfPeople;
+            }
+        }
         function getMarkhaTrekPriceDetails() {
             tourService.getTourPriceDetails(tourPriceId, function (data) {
                 if (data) {
                     $scope.tourPrice = data
                     $scope.calculatePeoplesCost()
+                    $scope.selectStay($scope.selectedStay)
                     getDateTimeListFromString($scope.tourPrice.group_dates)
                     getDateListForMonth(1)
                     $scope.$apply()
@@ -116,10 +142,10 @@
                 }
             });
         }
-        function getDateListForMonth(month){
+        function getDateListForMonth(month) {
             angular.forEach($scope.groupDateTimelist, function (dateObj, key) {
                 try {
-                    if(month == dateObj.getMonth() + 1){
+                    if (month == dateObj.getMonth() + 1) {
                         $scope.groupDateList.push(dateObj.getDate())
                     }
                 }
@@ -128,38 +154,19 @@
                 }
             });
         }
-        $scope.sendUserQuery = function(){
-            if($scope.userQuery.name && $scope.userQuery.phone && $scope.userQuery.email){
-                $scope.userQuery.isPrivateOrGroup = $scope.privateGroupTabIndex
-                if(!$scope.userQuery.isPrivateOrGroup){
-                    //Private
+        $scope.sendUserQuery = function () {
+            if ($scope.userQuery.name && $scope.userQuery.phone && $scope.userQuery.email) {
                     $scope.userQuery.private = {
                         tourId: tourPriceId,
                         tourName: $scope.tourPrice.trek_name,
                         numberOfPeople: $scope.numberOfPeople,
-                        peopleCost: $scope.peoplesCost, 
-                        selectedAccomodation: $scope.selectedAccomodation,
-                        selectedAccomodationCostFor3Nights: ( 3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms),
-                        totalSleepingBags: $scope.totalSleepingBags,
-                        totalSleepingBagsCost: $scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost,
-                        totalCost: ($scope.peoplesCost + (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms) + ($scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost))/$scope.numberOfPeople
+                        selectedPriceList: $scope.selectedPriceList,
+                        totalCost: $scope.finalPrice,
+                        tourDate: $scope.tourDate,
+                        selectedStay: $scope.selectedStay
                     }
-                }
-                else{
-                    //Group
-                    $scope.userQuery.group = {
-                        tourId: tourPriceId,
-                        tourName: $scope.tourPrice.trek_name,
-                        groupCost: $scope.tourPrice.group_cost,
-                        numberOfPeople: $scope.numberOfPeopleInGroup,
-                        selectedMonth: $scope.selectedMonth,
-                        selectedDate: $scope.selectedDate,
-                        totalSleepingBags: $scope.totalSleepingBagsGroup,
-                        totalSleepingBagsCost: $scope.totalSleepingBagsGroup * $scope.tourPrice.sleeping_bag_cost
-                    }
-                }
-                tourService.sendUserTourQuery($scope.userQuery,function(data){
-                    if(data){
+                tourService.sendUserTourQuery($scope.userQuery, function (data) {
+                    if (data) {
                         console.log(data)
                         $('#enqModal').modal('hide')
                     }
