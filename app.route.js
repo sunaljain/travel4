@@ -40,6 +40,10 @@
              controller: 'StokTrekCtrl',
             templateUrl: 'app/components/tours/stokTrek/stokTrek.html'
         })
+        .when('/tours/lehTourAlternate', {
+             controller: 'LehTourAlternateCtrl',
+            templateUrl: 'app/components/tours/lehTourAlternate/lehTourAlternate.html'
+        })
         .when('/pageNotFound/',{
             controller: 'ErrorPageCtrl',
             templateUrl:'app/components/error/errorPage.html'

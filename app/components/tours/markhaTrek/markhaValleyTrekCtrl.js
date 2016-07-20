@@ -109,6 +109,10 @@
             tourService.getTourPriceDetails(tourPriceId, function (data) {
                 if (data) {
                     $scope.tourPrice = data
+                    $scope.tourPrice.groupDates = new Array();
+                    angular.forEach($scope.tourPrice.group_dates, function (groupDate, key) {
+                        $scope.tourPrice.groupDates.push(new Date(groupDate))
+                    })
                     $scope.calculatePeoplesCost()
                     getDateTimeListFromString($scope.tourPrice.group_dates)
                     getDateListForMonth(1)
@@ -169,7 +173,7 @@
                         totalSleepingBagsCost: $scope.totalSleepingBagsGroup * $scope.tourPrice.sleeping_bag_cost
                     }
                 }
-                tourService.sendUserTourQuery($scope.userQuery, function (data) {
+                tourService.sendUserTourQueryRest($scope.userQuery, function (data) {
                     if (data) {
                         console.log(data)
                         $('#enqModal').modal('hide')

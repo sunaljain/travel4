@@ -5,7 +5,8 @@ app.factory('TourService', ['$http', '$q', function ($http, $q) {
 
     return {
         getTourPriceDetails: getTourPriceDetails,
-        sendUserTourQuery: sendUserTourQuery
+        sendUserTourQuery: sendUserTourQuery,
+        sendUserTourQueryRest: sendUserTourQueryRest
     };
 
     function getTourPriceDetails(tourPriceId, callback) {
@@ -36,4 +37,18 @@ app.factory('TourService', ['$http', '$q', function ($http, $q) {
         });
     }
 
+    function sendUserTourQueryRest(userQuery, callback) {
+        var data = {
+            userQuery: userQuery
+        }
+        Parse.Cloud.run("sendTourUserQuery", data, {
+            success: function (object) {
+                callback(object);
+            },
+
+            error: function (object, error) {
+                console.log(object + ' ' + error);
+            }
+        });
+    }
 } ]);

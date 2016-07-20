@@ -611,6 +611,13 @@
                                     </div>
                                     <hr>
                                     <div class="date-month2 lato" style="">
+                                        <label for="sel1">Date:</label>
+                                        <div class="input-group spinner">
+                                            <input style="text-align: left" name="travelDate" type="text" placeholder="Enter Date" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="tourDate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" id="date" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="date-month2 lato" style="">
                                         <label for="sel1">Accommodation:</label>
                                         <select class="form-control" ng-model="selectedAccomodation" ng-options="tourAccomodation.type for tourAccomodation in tourPrice.accomodation">
                                             <option ng-click="selectedAccomodation.cost = 0" value="">-- Select Accomodation --</option>
@@ -618,13 +625,6 @@
                                         <div ng-show="selectedAccomodation.cost">{{3 * selectedAccomodation.cost * numberOfRooms }} for 3 Nights on twin sharing basis</div>
                                     </div>
                                     <hr>
-                                    <div class="date-month2 lato" style="">
-                                        <label for="sel1">Sleeping Bags:</label>
-                                        <div class="input-group spinner">
-                                            <input ng-model="totalSleepingBags" type="number" min="0" class="form-control" style="text-align:left;">
-                                           <span> {{totalSleepingBags * tourPrice.sleeping_bag_cost}}</span>
-                                        </div>
-                                    </div>
                                 </div>
                                 <div ng-show="privateGroupTabIndex == 1" id="groupbuy" class="">
                                     <div class="green text-center lato">
@@ -640,27 +640,15 @@
                                             </div>
                                         </div>
                                         <div class="date-month">
-                                            <label for="sel1">Month:</label>
-                                            <select class="form-control" id="sel1" ng-model="selectedMonth" ng-options="groupMonth.Value for groupMonth in groupMonthsList">
-                                            </select>
-                                        </div>
-                                        <div class="date-month">
                                             <label for="sel1">Date:</label>
-                                            <select class="form-control" id="sel2" ng-model="selectedDate" ng-options="groupDate for groupDate in groupDateList">
+                                            <select class="form-control" id="sel2" ng-model="selectedDate" ng-options="groupDate for groupDate in tourPrice.groupDates">
                                             </select>
-                                        </div>
-                                    </div>
-                                    <hr>
-                                    <div class="date-month2 lato" style="">
-                                        <label for="sel1">Date:</label>
-                                        <div class="input-group spinner">
-                                            <input style="text-align: left" name="travelDate" type="text" placeholder="Enter Date" uib-datepicker-popup="dd-MMMM-yyyy" ng-model="tourDate" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" ng-required="true" close-text="Close" ng-click="open($event)" id="date" required>
                                         </div>
                                     </div>
                                 </div>
                                 <br>
                                 <div class="flex lato text-center">
-                                    <div  class="date-month inr" style="border-bottom-left-radius:6px;"> <i class="fa fa-shopping-cart"></i> <span ng-show="privateGroupTabIndex == 0 && numberOfPeople">INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms) + (totalSleepingBags * tourPrice.sleeping_bag_cost))/numberOfPeople | number:0}} per person</span> <span ng-show="privateGroupTabIndex == 1 &&numberOfPeopleInGroup"> INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost) + (totalSleepingBagsGroup * tourPrice.sleeping_bag_cost))/numberOfPeopleInGroup | number:0}} per person</span></div>
+                                    <div  class="date-month inr" style="border-bottom-left-radius:6px;"> <i class="fa fa-shopping-cart"></i> <span ng-show="privateGroupTabIndex == 0 && numberOfPeople">INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms))/numberOfPeople | number:0}} per person</span> <span ng-show="privateGroupTabIndex == 1 &&numberOfPeopleInGroup"> INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost))/numberOfPeopleInGroup | number:0}} per person</span></div>
                                     <div class="date-month inr dark-green-bg" style="border-bottom-right-radius:6px; cursor:pointer;" data-toggle="modal" data-target="#enqModal"> Enquire Now <i class="fa fa-angle-right"></i> </div>
                                 </div>
                             </div>
@@ -682,13 +670,13 @@
             <div ng-show="privateGroupTabIndex == 0" class="text-center green lato">
             	<h3>Number of people: {{numberOfPeople}}</h3>
                 <h3>Accomodation: <span ng-show="selectedAccomodation.cost != 0">{{selectedAccomodation.type}}</span><span ng-show="selectedAccomodation.cost == 0">No accomodation selected</span></h3>
-                <h3>Sleeping bags: {{totalSleepingBags}}</h3>
-                <h3>Final cost: INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms) + (totalSleepingBags * tourPrice.sleeping_bag_cost))/numberOfPeople | number:0}} per  person</h3>
+           
+                <h3>Final cost: INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms)) | number:0}}</h3>
             </div>
             <div ng-show="privateGroupTabIndex == 1" class="text-center green lato">
             	<h3>Number of people: {{numberOfPeopleInGroup}}</h3>
-                <h3>Sleeping bags: {{totalSleepingBagsGroup}}</h3>
-                <h3>Final cost: INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost) + (totalSleepingBagsGroup * tourPrice.sleeping_bag_cost))/numberOfPeopleInGroup | number:0}} per person</h3>
+                
+                <h3>Final cost: INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost)) | number:0}}</h3>
             </div>
             <form role="form">
   <div class="form-group">
