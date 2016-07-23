@@ -1,5 +1,5 @@
 <div class="sale-wrap">
-    <div class="intro-photo-wrap">
+    <div class="intro-photo-wrap" style="background-image:url(../../../../css/images/hero_img_trip_selling/stok_la_hero_img.jpg);">
         <div class="badge-det text-center">
             <img src="../../../../css/images/trip_selling_badges/stok_la_trek_badge.png" class="img-responsive">
             <p><i class="fa fa-map-marker"></i> <strong>Leh</strong>, Ladakh, India</p>
@@ -8,7 +8,7 @@
                     <img src="css/images/hero_img_icons/trip_time.png" style="height:45px">
                     <span> 6 days</span>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" style="padding-left:0;">
                     <img src="css/images/hero_img_icons/difficulty_meter.png" style="height:45px;">
                     <span>Moderate</span>
                 </div>
@@ -29,8 +29,8 @@
                     <li ng-class="{'active': pillTabIndex == 1}"><a data-toggle="pill" ng-click="updatePillTabPos(1)"><i class="fa fa-map-o" aria-hidden="true"></i> Itinerary
                         </a> </li>
                     <li ng-class="{'active': pillTabIndex == 2}"><a data-toggle="pill" ng-click="updatePillTabPos(2)"><i class="fa fa-align-left"></i> Details</a></li>
-                    <li ng-class="{'active': pillTabIndex == 3}"><a data-toggle="pill" ng-click="updatePillTabPos(3)"><i class="fa fa-umbrella" aria-hidden="true"></i>What to Carry</a></li>
-                    <li ng-class="{'active': pillTabIndex == 4}"><a data-toggle="pill" ng-click="updatePillTabPos(4)"><i class="fa fa-ban" aria-hidden="true"></i>Cancellation Policy</a></li>
+                    <li ng-class="{'active': pillTabIndex == 3}" class="hidden-xs hidden-sm"><a data-toggle="pill" ng-click="updatePillTabPos(3)"><i class="fa fa-umbrella" aria-hidden="true"></i>What to Carry</a></li>
+                    <li ng-class="{'active': pillTabIndex == 4}" class="hidden-xs hidden-sm"><a data-toggle="pill" ng-click="updatePillTabPos(4)"><i class="fa fa-ban" aria-hidden="true"></i>Cancellation Policy</a></li>
                 </ul>
             </div>
         </div>

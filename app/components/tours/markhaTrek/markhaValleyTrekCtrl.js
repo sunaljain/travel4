@@ -111,7 +111,7 @@
                     $scope.tourPrice = data
                     $scope.tourPrice.groupDates = new Array();
                     angular.forEach($scope.tourPrice.group_dates, function (groupDate, key) {
-                        $scope.tourPrice.groupDates.push(new Date(groupDate))
+                        $scope.tourPrice.groupDates.push((new Date(groupDate)).toDateString())
                     })
                     $scope.calculatePeoplesCost()
                     getDateTimeListFromString($scope.tourPrice.group_dates)
@@ -152,12 +152,11 @@
                         tourId: tourPriceId,
                         tourName: $scope.tourPrice.trek_name,
                         numberOfPeople: $scope.numberOfPeople,
+                        selectedDate: $scope.tourDate,
                         peopleCost: $scope.peoplesCost,
                         selectedAccomodation: $scope.selectedAccomodation,
                         selectedAccomodationCostFor3Nights: (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms),
-                        totalSleepingBags: $scope.totalSleepingBags,
-                        totalSleepingBagsCost: $scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost,
-                        totalCost: ($scope.peoplesCost + (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms) + ($scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost)) / $scope.numberOfPeople
+                        totalCost: ($scope.peoplesCost + (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms))
                     }
                 }
                 else {
@@ -167,10 +166,8 @@
                         tourName: $scope.tourPrice.trek_name,
                         groupCost: $scope.tourPrice.group_cost,
                         numberOfPeople: $scope.numberOfPeopleInGroup,
-                        selectedMonth: $scope.selectedMonth,
                         selectedDate: $scope.selectedDate,
-                        totalSleepingBags: $scope.totalSleepingBagsGroup,
-                        totalSleepingBagsCost: $scope.totalSleepingBagsGroup * $scope.tourPrice.sleeping_bag_cost
+                        totalCost: $scope.numberOfPeopleInGroup * $scope.tourPrice.group_cost
                     }
                 }
                 tourService.sendUserTourQueryRest($scope.userQuery, function (data) {

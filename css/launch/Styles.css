@@ -812,21 +812,6 @@ a {
     color: #a94442;
 }
 
-.thumbnail {
-    padding: 0px;
-    display: block;
-    /* padding: 4px; */
-    /* margin-bottom: 20px; */
-    line-height: 1.42857143;
-    background-color: #fff;
-    border: none;
-    border-radius: 4px;
-    -webkit-transition: border .2s ease-in-out;
-    -o-transition: border .2s ease-in-out;
-    transition: border .2s ease-in-out;
-    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
 .pac-container {
     border-bottom-right-radius: 6px;
     border-bottom-left-radius: 6px;
@@ -1503,12 +1488,10 @@ label {
 }
 
 .intro-photo {
-    background-image: url(../images/Markha_hero/markha_valley_hero_img.jpg);
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-color: rgba(0, 0, 0, 0.7);
     background-repeat: no-repeat;
     position: relative;
 }
@@ -1631,7 +1614,7 @@ label {
 }
 
 .date-month {
-    width: 50%;
+    width: 100%;
     padding-left: 5px;
     padding-right: 5px;
 }
@@ -1844,8 +1827,114 @@ z-index: 1;
 	background-color:#B0B0B0;
 }
 .mandwithinactive{
-	background-color:#B0B0B0;
+    background-color:#169F8D;
+    color: white;
+}
+.mandwithinactive span{
+    color: white;
 }
 .tripsWrap{
 	padding-top:80px;
+}
+.location-thumb {
+    margin-top: 30px;
+    height: 285px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 30px;
+    max-width: 262.5px;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(235, 235, 235);
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.05),0 2px 10px 0 rgba(0,0,0,0.05);
+}
+
+.location-thumb .trip-img {
+    border-radius: 4px;
+    background-color: rgb(171, 171, 171);
+    box-shadow: 0px 4px 15px 0px rgba(0, 0, 0, 0.6);
+    left: 0;
+    right: 0;
+    max-width: 242.5px;
+    max-height: 242.5px;
+    position: absolute;
+    top: -40px;
+    width: 100%;
+}
+.ig-lofi {
+    filter: contrast(1.4) brightness(0.9) sepia(0.05);
+    -webkit-filter: contrast(1.4) brightness(0.9) sepia(0.05);
+}.location-thumb .caption {
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 30px;
+    padding-left: 15px;
+    padding-right: 15px;
+}.user_name_thumbnail a {
+    font-size: 14px;
+    font-family: lato;
+    color: rgb(82, 83, 84);
+    line-height: 2;
+    position: absolute;
+    left: 50px;
+    margin-left: 4px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+}.Like_icon_thumbnail {
+    padding-top: 8px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-size: 14px;
+    color: rgb(109, 112, 119);
+}
+.tripsWrap .thumbnail img{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.tripsWrap .thumbnail{
+    padding: 0;
+    border-top-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: lato;
+}
+.tripsWrap .thumbnail .caption{
+    display: -webkit-box;
+}
+.no-days{
+    width:  50%;
+}
+.no-days img{
+    height: 30px;
+}
+.diff-level{
+    width:50%;
+}
+.diff-level img{
+    height: 30px;
+}
+.view-iti{
+    background-color: #169F8D;
+    color: white;
+    padding: 10px;
+    width: 40%;
+    border-bottom-left-radius: 5px;
+}
+.price-range{
+    background-color: #148C7C;
+    color: white;
+    padding: 10px;
+    width: 61%;
+    border-bottom-right-radius: 5px;
+}
+.caption2{
+    display: flex;
 }

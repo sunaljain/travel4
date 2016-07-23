@@ -112,7 +112,7 @@
                     $scope.tourPrice = data
                     $scope.tourPrice.groupDates = new Array();
                     angular.forEach($scope.tourPrice.group_dates, function (groupDate, key) {
-                        $scope.tourPrice.groupDates.push(new Date(groupDate))
+                        $scope.tourPrice.groupDates.push((new Date(groupDate)).toDateString())
                     })
                     $scope.calculatePeoplesCost()
                     getDateTimeListFromString($scope.tourPrice.group_dates)

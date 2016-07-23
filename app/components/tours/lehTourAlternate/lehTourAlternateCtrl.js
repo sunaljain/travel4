@@ -123,6 +123,10 @@
             tourService.getTourPriceDetails(tourPriceId, function (data) {
                 if (data) {
                     $scope.tourPrice = data
+                    $scope.tourPrice.groupDates = new Array();
+                    angular.forEach($scope.tourPrice.group_dates, function (groupDate, key) {
+                        $scope.tourPrice.groupDates.push((new Date(groupDate)).toDateString())
+                    })
                     $scope.calculatePeoplesCost()
                     $scope.selectStay($scope.selectedStay)
                     getDateTimeListFromString($scope.tourPrice.group_dates)

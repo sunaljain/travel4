@@ -20,27 +20,28 @@
         .when('/explore/',{
             templateUrl:'app/components/exploreComingSoon/exploreComingSoon.html'
         })
-        .when('/location/',{
-            templateUrl:'app/components/locationComingSoon/locationComingSoon.html'
+        .when('/tours/',{
+            controller: 'ToursCtrl',	
+            templateUrl:'app/components/tours/tours.html'
         })
         .when('/chatWithCampture/',{		
              controller: 'ChatWithCamptureCtrl',		
              templateUrl:'app/components/chatWithCampture/chatWithCampture.html'		
          })
 
-         .when('/tours/markhaTrek', {
+         .when('/tours/markhavalleytrek', {
              controller: 'MarkhaValleyTrekCtrl',
             templateUrl: 'app/components/tours/markhaTrek/markhaValleyTrek.html'
         })
-        .when('/tours/lehTour', {
+        .when('/tours/lehtourwithrafting', {
              controller: 'LehTourCtrl',
             templateUrl: 'app/components/tours/lehTour/lehTour.html'
         })
-        .when('/tours/stokTrek', {
+        .when('/tours/stoklatrek', {
              controller: 'StokTrekCtrl',
             templateUrl: 'app/components/tours/stokTrek/stokTrek.html'
         })
-        .when('/tours/lehTourAlternate', {
+        .when('/tours/lehtour', {
              controller: 'LehTourAlternateCtrl',
             templateUrl: 'app/components/tours/lehTourAlternate/lehTourAlternate.html'
         })
