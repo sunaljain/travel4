@@ -842,11 +842,12 @@ Assisted transfer to the airport.
                 <div ng-show="privateGroupTabIndex == 0" class="text-center green lato">
                     <h3>Number of people: {{numberOfPeople}}</h3>
                     <h3>Accomodation: <span ng-show="selectedAccomodation.cost != 0">{{selectedAccomodation.type}}</span><span ng-show="selectedAccomodation.cost == 0">No accomodation selected</span></h3>
+                    <h3>Selected Date: {{tourDate.toDateString()}}</h3>
                     <h3>Final cost: INR {{(peoplesCost + (3 * selectedAccomodation.cost * numberOfRooms) ) | number:0}}</h3>
                 </div>
                 <div ng-show="privateGroupTabIndex == 1" class="text-center green lato">
                     <h3>Number of people: {{numberOfPeopleInGroup}}</h3>
-                    <h3>Sleeping bags: {{totalSleepingBagsGroup}}</h3>
+                     844 <h3>Selected Date: {{selectedDate.toDateString()}}</h3>
                     <h3>Final cost: INR {{ ((numberOfPeopleInGroup * tourPrice.group_cost)) | number:0}}</h3>
                 </div>
                 <form role="form">
