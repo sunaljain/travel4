@@ -1,9 +1,9 @@
 <div class="cover" style="background-image:url(css/images/hero_img_trip_selling/leh_ladakh_hero_img.jpg);">
-<div class="hi">
+<div class="hi" style="margin-top: 20vh">
     <img src="css/images/hero_img_trip_selling/leh_ladakh_badge.png" style="z-index: 5">
     <div class="view-det text-center" style="margin-top: 30vh">
-        <a onClick="$('.sale-content').animatescroll({scrollSpeed:500,easing:'linear'});">
-            <p>View Details</p>
+        <a onClick="$('.atitle').animatescroll({scrollSpeed:500,easing:'linear'});">
+            <p>View Trips</p>
             <p><i class="fa fa-angle-down"></i></p>
         </a>
     </div>
@@ -11,20 +11,23 @@
     
 </div>
 
-<div style="min-height: 100vh" class="tv">
-    <div class="screen mute" id="tv"></div>
-</div>
-<div style="margin-top: 100vh" class="text-center tripsWrap">
+
+<div style="margin-top: 100vh;padding-top: 10px;" class="text-center tripsWrap">
     <!--<h1 class="lato">Trips</h1>-->
     <div class="container">
         <div class="row text-center">
             <div class="col-md-1"></div>
             <div class="col-md-10">
+                <div class="row text-center atitle">
+                    <h2>Our Handpicked Iteneraries For Experiencing</h2>
+                    <h2>Leh Ladakh At Unbeatable Prices</h2>
+                </div>
+                </br>
                 <div class="col-md-6" ng-repeat="tour in tourList track by $index" style="padding-left: 40px; padding-right: 40px;">
                     <div class="thumbnail" style="margin-bottom: 50px">
                         <a ng-href="#/tours/leh/{{tour.tour_url}}"><img ng-src="{{tour.image_url}}"></a>
                         <div class="row text-center">
-                            <div class="" style="margin-top: 10px;">{{tour.trek_name}}</div>
+                            <div class="" style="margin-top: 10px;"><b>{{tour.trek_name}}</b></div>
                         </div>
                         <div class="caption">
                             <div class="no-days"><img src="css/images/trip_thumb/trip_time_thumb.png"><span>&nbsp; {{tour.duration}} Days</span></div>
@@ -98,3 +101,4 @@
         text-align: center;
     }
 </style>
+<script src="app/components/tours/animatescroll.min.js"></script>
