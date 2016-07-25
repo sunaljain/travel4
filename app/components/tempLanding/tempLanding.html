@@ -1,27 +1,20 @@
 <div class="bodywrap">
     <div class="jumbotron">
+        <div class="screen mute" id="tv"></div>
         <div class="nav">
             <div class="text-center yourguide">
-                <img src="Images/Logo 2-min.png" class="img-responsive herologo">
+                <img src="Images/Logo 2-min.png" class="img-responsive herologo input-group">
                 <div class="row" style="margin-bottom: 10px;">
                     <span class="yourexpert">Your expert guide to everything outdoors</span>
                 </div>
                 <br>
-                <form ng-submit="sendUserEmail()">
-                <div class="input-group col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10  col-xs-offset-1 maxwidth">                    
-                    <input ng-model="emailField1" type="text" class="form-control form-control-camptureme" placeholder="Your email address" required>
+                <form >
+                <div class="input-group col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10  col-xs-offset-1 maxwidth">                   
                     <span class="input-group-btn">
-                        <button class="btn btn-orange" type="submit">Campture Me!</button>
+                        <button class="btn btn-orange" type="submit">Leh & Ladakh Trip</button>
                     </span>                                     
                 </div>
                     </form>
-                    <p ng-show="isemailField1Sent" style="font-family:lato-light;">
-                    Thank You!
-                    </p> 
-                <!-- /input-group -->
-                <a href="https://www.facebook.com/groups/campture/?fref=ts" style="color:white;" target="_blank">
-                    <button class="btn btn-orange joincommunity maxwidth" type="button"><span><em class="fa fa-facebook">&nbsp; &nbsp; </em>Join our adventure community</span></button>
-                </a>
             </div>
             <div class="floating-icons text-center col-lg-offset-3 col-lg-6">
                 <a href="https://www.facebook.com/CamptureApp/?fref=ts"><span class="footersocial"><i class="fa fa-facebook"></i></span></a> <a href="https://twitter.com/Campture"><span class="footersocial"><i class="fa fa-twitter"></i></span></a>
@@ -30,7 +23,7 @@
                 <a href="https://www.pinterest.com/campture/"><span class="footersocial"><i class="fa fa-pinterest"></i></span></a>
             </div>
         </div>
-        <div class="stamp container">
+        <div class="stamp container input-group">
             <img src="Images/Badge.png" class="img-responsive">
         </div>
     </div>
@@ -145,3 +138,79 @@ Locations</p>
     </div>
     </form>
 </div>
+<style>
+      .screen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+
+    margin: auto;
+
+    opacity: 0;
+    transition: opacity .5s;
+
+    
+  }
+    .active {
+      opacity: 1;
+    }
+</style>
+<script>
+        var tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/player_api';
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    var tv,
+            playerDefaults = {autoplay: 0, autohide: 1, modestbranding: 0, rel: 0, showinfo: 0, controls: 0, disablekb: 1, enablejsapi: 0, iv_load_policy: 3};
+    var vid = [
+                {'videoId': 'QbqJGQgFqdo', 'startSeconds': 8, 'endSeconds': 76, 'suggestedQuality': 'hd720'}
+            ],
+            randomvid = Math.floor(Math.random() * (vid.length - 1 + 1));
+    
+    function onYouTubePlayerAPIReady(){
+      tv = new YT.Player('tv', {events: {'onReady': onPlayerReady, 'onStateChange': onPlayerStateChange}, playerVars: playerDefaults});
+    }
+    
+    function onPlayerReady(){
+      tv.loadVideoById(vid[randomvid]);
+      tv.mute();
+    }
+    
+    function onPlayerStateChange(e) {
+      if (e.data === 1){
+        $('#tv').addClass('active');
+      } else if (e.data === 0){
+        tv.seekTo(vid[randomvid].startSeconds)
+      }
+    }
+    
+    function vidRescale(){
+    
+      var w = $(window).width()+200,
+        h = $(window).height()+200;
+    
+      if (w/h > 16/9){
+        tv.setSize(w, w/16*9);
+        $('.tv .screen').css({'left': '0px'});
+      } else {
+        tv.setSize(h/9*16, h);
+        $('.tv .screen').css({'left': -($('.tv .screen').outerWidth()-w)/2});
+      }
+    }
+    
+    $(window).on('load resize', function(){
+      vidRescale();
+    });
+    
+    $('.hi span').on('click', function(){
+      $('#tv').toggleClass('mute');
+      if($('#tv').hasClass('mute')){
+        tv.mute();
+      } else {
+        tv.unMute();
+      }
+    });
+</script>

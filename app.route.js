@@ -28,20 +28,23 @@
              controller: 'ChatWithCamptureCtrl',		
              templateUrl:'app/components/chatWithCampture/chatWithCampture.html'		
          })
-
-         .when('/tours/markhavalleytrek', {
+         .when('/tours/leh', {
+             controller: 'LehCtrl',
+            templateUrl: 'app/components/tours/leh/leh.html'
+        })
+         .when('/tours/leh/markhavalleytrek', {
              controller: 'MarkhaValleyTrekCtrl',
             templateUrl: 'app/components/tours/markhaTrek/markhaValleyTrek.html'
         })
-        .when('/tours/lehtourwithrafting', {
+        .when('/tours/leh/lehtourwithrafting', {
              controller: 'LehTourCtrl',
             templateUrl: 'app/components/tours/lehTour/lehTour.html'
         })
-        .when('/tours/stoklatrek', {
+        .when('/tours/leh/stoklatrek', {
              controller: 'StokTrekCtrl',
             templateUrl: 'app/components/tours/stokTrek/stokTrek.html'
         })
-        .when('/tours/lehtour', {
+        .when('/tours/leh/lehtour', {
              controller: 'LehTourAlternateCtrl',
             templateUrl: 'app/components/tours/lehTourAlternate/lehTourAlternate.html'
         })
