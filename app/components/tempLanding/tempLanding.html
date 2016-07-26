@@ -1,20 +1,21 @@
 <div class="bodywrap">
-    <div class="jumbotron">
-        <div class="screen mute" id="tv"></div>
+    <div class="jumbotro">
+        <!--<div class="screen mute" id="tv"></div>-->
         <div class="nav">
             <div class="text-center yourguide">
-                <img src="Images/Logo 2-min.png" class="img-responsive herologo input-group">
+                <!--<img src="Images/Logo 2-min.png" class="img-responsive herologo input-group">-->
+                <img src="css/images/campture_ladakh_badge.png" class="img-responsive">
                 <div class="row" style="margin-bottom: 10px;">
                     <span class="yourexpert">Your expert guide to everything outdoors</span>
                 </div>
                 <br>
                 <form >
-                <div class="input-group col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10  col-xs-offset-1 maxwidth">                   
-                    <span class="input-group-btn">
-                        <button class="btn btn-orange" type="submit">Leh & Ladakh Trip</button>
-                    </span>                                     
-                </div>
-                    </form>
+                    <div class="input-group col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-4 col-xs-10  col-xs-offset-1 maxwidth">                   
+                        <span class="input-group-btn">
+                            <a href="#/tours/leh" class="btn btn-campture" style="font-size:18px;">Explore Trips</a>
+                        </span>                                     
+                    </div>
+                </form>
             </div>
             <div class="floating-icons text-center col-lg-offset-3 col-lg-6">
                 <a href="https://www.facebook.com/CamptureApp/?fref=ts"><span class="footersocial"><i class="fa fa-facebook"></i></span></a> <a href="https://twitter.com/Campture"><span class="footersocial"><i class="fa fa-twitter"></i></span></a>
@@ -23,8 +24,24 @@
                 <a href="https://www.pinterest.com/campture/"><span class="footersocial"><i class="fa fa-pinterest"></i></span></a>
             </div>
         </div>
-        <div class="stamp container input-group">
+        <video autoplay="autoplay" loop="loop" width="640px" height="360px" muted="muted">
+            <source src="http://res.cloudinary.com/dsykpguat/video/upload/so_8/v1469524691/leh_ladakh_final_site_v2d6w9.mp4" type="video/mp4"/>
+        </video>
+        
+        <!--<div class="stamp container input-group">
             <img src="Images/Badge.png" class="img-responsive">
+        </div>-->
+    </div>
+</div>
+<div class="leh-section container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="lato">Cross Leh off your bucketlist</h1>
+            <h2 class="lato">This weekend live your dream of visiting the mountainous beauty</h2>
+            <a href="#/tours/leh" class="btn btn-campture">Explore Trips</a>
+            </div>
+        <div class="col-md-6">
+            <img src="css/images/trip_banner_homepage.jpg" class="img-responsive">
         </div>
     </div>
 </div>
@@ -212,5 +229,10 @@ Locations</p>
       } else {
         tv.unMute();
       }
+    });
+</script>
+<script>$(function(){
+        // Helper function to Fill and Center the HTML5 Video
+        jQuery('video').maximage('maxcover');
     });
 </script>

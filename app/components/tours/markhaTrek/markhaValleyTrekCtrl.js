@@ -2,10 +2,14 @@
     'use strict';
 
     var app = angular.module('campture');
+    app.filter('escape', function () {
+        return window.encodeURIComponent;
+    });
     app.controller('MarkhaValleyTrekCtrl', ['$scope', '$location', '$anchorScroll', '$route', 'TourService', controller]);
     function controller($scope, $location, $anchorScroll, $route, tourService) {
         //====== Scope Variables==========
         //================================
+        $scope.pageUrl = $location.$$absUrl;
         $scope.pillTabIndex = 0;
         $scope.privateGroupTabIndex = 0;
         $scope.numberOfPeople = 1;
@@ -177,6 +181,15 @@
                     }
                 })
             }
+        }
+        $scope.shareOnFacebook = function () {
+            FB.ui({
+                method: "feed",
+                link: $scope.pageUrl,
+                caption: $scope.trip.title,
+                description: $scope.trip.introduction,
+                picture: $scope.trip.main_image.image_url
+            });
         }
     };
 })();

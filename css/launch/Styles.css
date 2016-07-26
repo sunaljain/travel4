@@ -98,6 +98,7 @@ html {
     font: lato;
     font-weight: 200;
     color: #FFFFFF;
+    border-radius: 4px!important;
 }
 
 .btn-campture:hover {
@@ -123,13 +124,14 @@ html {
     padding: none!important;
 }
 
-.bodywrap .jumbotron {
-    background: url(/Images/tempLanding_background.jpg);
+.bodywrap .jumbotro {
+    /*background: url(/Images/tempLanding_background.jpg);*/
     background-size: cover;
     width: 100%;
     height: 100vh;
-    padding-top: 100px;
     margin-bottom: 0px!important;
+	overflow:hidden;
+    position: relative;
 }
 
 .navigation {
@@ -145,8 +147,15 @@ html {
     font-size: 20px;
     font-family: "Lato";
     color: rgb(255, 255, 255);
-    font-style: italic;
     text-transform: uppercase;
+}
+.yourguide img{
+    position: relative;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 60px;
 }
 
 .btn-orange {
@@ -154,10 +163,15 @@ html {
     font-family: "lato"!important;
     font-weight: 100!important;
     font-style: normal;
-    text-transform: uppercase;
+    text-transform: capitalize;
     letter-spacing: 0.040em;
     height: 50px;
     overflow: hidden;
+    border-radius: 4px!important;
+    font-size: 20px;
+}
+.btn-orange:hover{
+    color: white;
 }
 
 .text-center.yourguide .input-group.col-md-4.col-md-offset-4.col-sm-4.col-sm-offset-4.col-xs-6.col-xs-offset-4 .form-control.form-control-camptureme {
@@ -177,7 +191,7 @@ html {
 .herologo {
     margin: auto;
     width: 70%;
-    margin-top: 20px;
+    margin-top: 100px;
     margin-bottom: 20px;
     max-width: 1000px!important
 }
@@ -351,6 +365,7 @@ html {
     margin-left: auto!important;
     margin-right: auto!important;
     min-width: 300px;
+    top: 70px;
 }
 
 .mockups.container p {
@@ -373,6 +388,9 @@ html {
     text-transform: none;
     font-size: 30px;
     margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+    top: 80px;
 }
 
 
@@ -1894,9 +1912,10 @@ z-index: 1;
     font-size: 14px;
     color: rgb(109, 112, 119);
 }
-.tripsWrap .thumbnail img{
+.tripsWrap .thumbnail a img{
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    width: 100%;
 }
 .tripsWrap .thumbnail{
     padding: 0;
@@ -1928,13 +1947,40 @@ z-index: 1;
     width: 40%;
     border-bottom-left-radius: 5px;
 }
+.view-iti:hover{
+    color: white;
+}
 .price-range{
     background-color: #148C7C;
     color: white;
     padding: 10px;
-    width: 61%;
+    width: 60%;
     border-bottom-right-radius: 5px;
 }
 .caption2{
     display: flex;
+}
+video{
+    top:0;
+    left:0;
+    position: absolute;
+    object-fit: contain;
+    object-position: center;
+    -webkit-filter: brightness(.5);
+}
+.leh-section{
+    padding-top: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+}
+.leh-section h1{
+    font-weight: bold;
+    font-size: 48px;
+    text-align: left;
+}
+.leh-section h2{
+    font-size: 28px;
+    text-align: left;
+    
 }

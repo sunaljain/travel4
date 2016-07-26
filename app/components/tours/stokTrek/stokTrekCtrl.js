@@ -2,10 +2,14 @@
     'use strict';
 
     var app = angular.module('campture');
+    app.filter('escape', function () {
+        return window.encodeURIComponent;
+    });
     app.controller('StokTrekCtrl', ['$scope', '$location', '$anchorScroll', '$route', 'TourService', controller]);
     function controller($scope, $location, $anchorScroll, $route, tourService) {
         //====== Scope Variables==========
         //================================
+        $scope.pageUrl = $location.$$absUrl;
         $scope.pillTabIndex = 0;
         $scope.privateGroupTabIndex = 0;
         $scope.numberOfPeople = 1;
@@ -150,15 +154,14 @@
                 if(!$scope.userQuery.isPrivateOrGroup){
                     //Private
                     $scope.userQuery.private = {
-                        tourId: tourPriceId,
+                         tourId: tourPriceId,
                         tourName: $scope.tourPrice.trek_name,
                         numberOfPeople: $scope.numberOfPeople,
-                        peopleCost: $scope.peoplesCost, 
+                        selectedDate: $scope.tourDate,
+                        peopleCost: $scope.peoplesCost,
                         selectedAccomodation: $scope.selectedAccomodation,
-                        selectedAccomodationCostFor3Nights: ( 3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms),
-                        totalSleepingBags: $scope.totalSleepingBags,
-                        totalSleepingBagsCost: $scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost,
-                        totalCost: ($scope.peoplesCost + (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms) + ($scope.totalSleepingBags * $scope.tourPrice.sleeping_bag_cost))/$scope.numberOfPeople
+                        selectedAccomodationCostFor3Nights: (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms),
+                        totalCost: ($scope.peoplesCost + (3 * $scope.selectedAccomodation.cost * $scope.numberOfRooms))
                     }
                 }
                 else{
@@ -168,10 +171,8 @@
                         tourName: $scope.tourPrice.trek_name,
                         groupCost: $scope.tourPrice.group_cost,
                         numberOfPeople: $scope.numberOfPeopleInGroup,
-                        selectedMonth: $scope.selectedMonth,
                         selectedDate: $scope.selectedDate,
-                        totalSleepingBags: $scope.totalSleepingBagsGroup,
-                        totalSleepingBagsCost: $scope.totalSleepingBagsGroup * $scope.tourPrice.sleeping_bag_cost
+                        totalCost: $scope.numberOfPeopleInGroup * $scope.tourPrice.group_cost
                     }
                 }
                 tourService.sendUserTourQueryRest($scope.userQuery,function(data){
@@ -181,6 +182,15 @@
                     }
                 })
             }
+        }
+        $scope.shareOnFacebook = function () {
+            FB.ui({
+                method: "feed",
+                link: $scope.pageUrl,
+                caption: $scope.trip.title,
+                description: $scope.trip.introduction,
+                picture: $scope.trip.main_image.image_url
+            });
         }
     };
 })();
