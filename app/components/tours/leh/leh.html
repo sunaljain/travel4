@@ -1,6 +1,6 @@
 <div class="cover" style="background-image:url(css/images/hero_img_trip_selling/leh_ladakh_hero_img.jpg);">
 <div class="hi" style="margin-top: 20vh">
-    <img src="css/images/hero_img_trip_selling/leh_ladakh_badge.png" style="z-index: 5">
+    <img src="css/images/hero_img_trip_selling/leh_ladakh_badge.png" style="z-index: 5" class="img-responsive">
     <div class="view-det text-center" style="margin-top: 30vh">
         <a onClick="$('.atitle').animatescroll({scrollSpeed:500,easing:'linear'});">
             <p>View Trips</p>
@@ -19,10 +19,10 @@
             <div class="col-md-1"></div>
             <div class="col-md-10">
                 <div class="row text-center atitle">
-                    <h2>Our Handpicked Iteneraries For Experiencing</h2>
+                    <h2>Our Handpicked Itineraries For Experiencing</h2>
                     <h2>Leh Ladakh At Unbeatable Prices</h2>
                 </div>
-                </br>
+                <br>
                 <div class="col-md-6" ng-repeat="tour in tourList track by $index" style="padding-left: 40px; padding-right: 40px;">
                     <div class="thumbnail" style="margin-bottom: 50px">
                         <a ng-href="#/tours/leh/{{tour.tour_url}}"><img ng-src="{{tour.image_url}}"></a>

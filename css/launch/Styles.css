@@ -1533,9 +1533,12 @@ label {
 .i-pills {
     color: #000000;
     letter-spacing: 0.14em;
-    display: block;
+    display: flex;
     cursor: pointer;
     text-overflow: ellipsis;
+    overflow-x: scroll;
+    max-height: 60px;
+    overflow-y: hidden;
 }
 
 .i-pills>li>a {
@@ -1621,10 +1624,11 @@ label {
 .i-tabs>li.active>a,
 .i-tabs>li.active>a:focus,
 .i-tabs>li.active>a:hover {
-    color: #169f8d!important;
+    color: #fff!important;
     background-color: #FFFFFF!important;
     border-bottom: 1px #169f8d solid !important;
     transition: ease-in .2s;
+    background-color: #169f8d!important;
 }
 
 .lato {
@@ -1983,4 +1987,7 @@ video{
     font-size: 28px;
     text-align: left;
     
+}
+.green-bodah a{
+    font-style: italic;
 }

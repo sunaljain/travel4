@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    var naji = $('.asfeatured').height() + $('.sectionsix').height() + $('.footer').height() + 260;
+    var naji = $('.asfeatured').height() + $('.sectionsix').height() + $('.footer').height() + 450;
     $("#sticker").sticky({
         topSpacing: 40
         , bottomSpacing: naji

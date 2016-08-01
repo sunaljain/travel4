@@ -24,10 +24,6 @@
             controller: 'ToursCtrl',	
             templateUrl:'app/components/tours/tours.html'
         })
-        .when('/chatWithCampture/',{		
-             controller: 'ChatWithCamptureCtrl',		
-             templateUrl:'app/components/chatWithCampture/chatWithCampture.html'		
-         })
          .when('/tours/leh', {
              controller: 'LehCtrl',
             templateUrl: 'app/components/tours/leh/leh.html'
