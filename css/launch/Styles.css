@@ -1503,6 +1503,9 @@ label {
 .intro-photo-wrap {
     height: 100vh;
     position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .intro-photo {
